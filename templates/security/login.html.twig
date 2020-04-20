@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if error %}<b>{{ error.messageKey }}</b>{% endif %}
+<form method="POST" action="/login">
+    <input type="text" name="_username" value="{{ usr }}">
+    <input type="password" name="_password">
+    <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('loginform') }}">
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}
